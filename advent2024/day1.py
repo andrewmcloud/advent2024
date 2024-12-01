@@ -14,4 +14,6 @@ part1 = sum(abs(l - r) for (l, r) in t)
 # part 2
 r_counter = Counter(right)
 part2 = sum(x * r_counter[x] for x in left)
-print(part2)
+
+print(f"part 1: {part1}")
+print(f"part 2: {part2}")
