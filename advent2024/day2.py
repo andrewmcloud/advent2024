@@ -12,8 +12,8 @@ def safe(report: list[int]) -> bool:
 
 def safe2(report: list[int]) -> bool:
     return any(
-        [safe(report), safe(report[:-1])] +
-        [safe(report[:i] + report[i + 1:]) for i in range(len(report) - 1)]
+        [safe(report)] +
+        [safe(report[:i] + report[i + 1:]) for i in range(len(report))]
     )
 
 
