@@ -2,15 +2,15 @@ with open("../input/day10.txt", "r") as f:
     input_ = f.readlines()
 
 
-def find_trail_heads(map: list[list[int]]):
-    return [(y, x) for y, row in enumerate(map) for x, step in enumerate(row) if step == 0]
+def find_trail_heads(map: list[list[int]]) -> list[tuple[int, int]]:
+    return [(r, c) for r, row in enumerate(map) for c, entry in enumerate(row) if entry == 0]
 
 
-def is_valid(row, col, curr):
+def is_valid(row: int, col: int, curr: int) -> bool:
     return 0 <= row < len(map) and 0 <= col < len(map[0]) and map[row][col] == curr + 1
 
 
-def find_all(map, row, col):
+def find_all(map: list[list[int]], row: int, col: int) -> list[list[int]]:
     paths = []
     visited = set()
 
