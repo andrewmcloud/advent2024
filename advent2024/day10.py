@@ -38,7 +38,7 @@ def find_all(map: list[list[int]], row: int, col: int) -> list[list[int]]:
 
 map = [[int(x) for x in line.strip()] for line in input_]
 trail_heads = find_trail_heads(map)
-trails = [find_all(map, row, col) for ((row, col)) in trail_heads]
+trails = [find_all(map, row, col) for (row, col) in trail_heads]
 
 part1 = sum(len({route[-1] for route in trail}) for trail in trails)
 part2 = sum(len(trail) for trail in trails)
