@@ -42,5 +42,5 @@ for window in windows(ws):
         mas += 1 if m else 0
     count += 1 if mas > 1 else 0
 
-print(f"part1: {part1}")
-print(f"part2: {count}")
+print(f"part 1: {part1}")
+print(f"part 2: {count}")

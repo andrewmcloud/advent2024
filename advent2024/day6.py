@@ -48,5 +48,5 @@ for (i, j) in part1:
     grid[i][j] = "."
 part2 = sum(count)
 
-print(f"part1: {len(part1)}")
-print(f"part2: {part2}")
+print(f"part 1: {len(part1)}")
+print(f"part 2: {part2}")

@@ -35,5 +35,5 @@ def blinking(blinks):
 part1 = sum(c for _, c in blinking(25).items())
 part2 = sum(c for _, c in blinking(75).items())
 
-print(f"part1: {part1}")
-print(f"part2: {part2}")
+print(f"part 1: {part1}")
+print(f"part 2: {part2}")

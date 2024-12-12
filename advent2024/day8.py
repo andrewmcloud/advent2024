@@ -47,5 +47,5 @@ def antinodes(antennas: set[tuple[int, int]], harmonics: bool = False):
 part1 = len({antinode for k in antennas.keys() for antinode in antinodes(antennas[k], False)})
 part2 = len({antinode for k in antennas.keys() for antinode in antinodes(antennas[k], True)})
 
-print(f"part1: {part1}")
-print(f"part2: {part2}")
+print(f"part 1: {part1}")
+print(f"part 2: {part2}")

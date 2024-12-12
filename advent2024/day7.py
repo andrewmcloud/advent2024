@@ -45,5 +45,5 @@ def calibrate(result: int, numbers: list[int], operators: list[str]) -> int:
 part1 = sum(calibrate(t, nums, ["+", "*"]) for (t, nums) in equations)
 part2 = sum(calibrate(t, nums, ["+", "*", "|"]) for (t, nums) in equations)
 
-print(f"part1: {part1}")
-print(f"part2: {part2}")
+print(f"part 1: {part1}")
+print(f"part 2: {part2}")

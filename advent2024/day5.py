@@ -53,5 +53,5 @@ unordered = [page for page in pages if not is_ordered(page, lookup)]
 ordered = [order(no, lookup) for no in unordered]
 part2 = sum(o[len(o) // 2] for o in ordered)
 
-print(f"part1: {part1}")
-print(f"part2: {part2}")
+print(f"part 1: {part1}")
+print(f"part 2: {part2}")
