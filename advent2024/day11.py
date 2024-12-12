@@ -3,11 +3,11 @@ with open("../input/day11.txt", "r") as f:
     input_ = f.read().split()
 
 
-def split_stone(stone: str):
-    return [stone[:len(stone)//2], str(int(stone[len(stone)//2:]))]
+def split_stone(stone: str) -> tuple[str, str]:
+    return stone[:len(stone)//2], str(int(stone[len(stone)//2:]))
 
 
-def blink(s, stones):
+def blink(s: tuple[str, int], stones: dict[str, int]) -> None:
     for (n, c) in s:
         match n:
             case "0":
@@ -21,7 +21,7 @@ def blink(s, stones):
         stones[n] -= 1 * c
 
 
-def blinking(blinks):
+def blinking(blinks: int) -> dict[str, int]:
     stones = Counter()
     for stone in input_:
         stones[stone] += 1
