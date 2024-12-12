@@ -84,4 +84,4 @@ cleaned = [0 if x is None else x for x in solve_part2(fs, disk)]
 part2 = sum(i*fb for i, fb in enumerate(cleaned))
 
 print(f"part1: {part1}")
-print(f"part1: {part2}")
+print(f"part2: {part2}")

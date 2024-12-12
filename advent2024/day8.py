@@ -48,4 +48,4 @@ part1 = len({antinode for k in antennas.keys() for antinode in antinodes(antenna
 part2 = len({antinode for k in antennas.keys() for antinode in antinodes(antennas[k], True)})
 
 print(f"part1: {part1}")
-print(f"part1: {part2}")
+print(f"part2: {part2}")

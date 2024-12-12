@@ -49,4 +49,4 @@ for (i, j) in part1:
 part2 = sum(count)
 
 print(f"part1: {len(part1)}")
-print(f"part1: {part2}")
+print(f"part2: {part2}")

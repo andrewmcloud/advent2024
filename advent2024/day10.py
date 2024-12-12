@@ -44,4 +44,4 @@ part1 = sum(len({route[-1] for route in trail}) for trail in trails)
 part2 = sum(len(trail) for trail in trails)
 
 print(f"part1: {part1}")
-print(f"part1: {part2}")
+print(f"part12: {part2}")
