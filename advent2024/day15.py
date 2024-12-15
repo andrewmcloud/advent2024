@@ -7,14 +7,14 @@ instructions = "".join(instructions.splitlines())
 move = {"^": (-1, 0), ">": (0, 1), "v": (1, 0), "<": (0, -1)}
 
 
-def find_robot(warehouse: list[list[str]]):
+def find_robot(warehouse: list[str]):
     for r, row in enumerate(warehouse):
         for c, col in enumerate(row):
             if col == "@":
                 return r, c
 
 
-def print_warehouse(warehouse: list[list[str]]):
+def print_warehouse(warehouse: list[str]):
     for row in warehouse:
         print(row)
     print("\n")
@@ -28,7 +28,7 @@ def move_to_front(s: str, c: str):
     return c + s[:index] + s[index + 1:]
 
 
-def push_boxe(next_: tuple[int, int], instruction: str, warehouse: list[list[str]]):
+def push_boxe(next_: tuple[int, int], instruction: str, warehouse: list[str]):
     if instruction == "^":
         row = "".join([warehouse[i][next_[1]] for i in range(0, len(warehouse))])
         up = row[:next_[0]+1]
@@ -54,7 +54,7 @@ def push_boxe(next_: tuple[int, int], instruction: str, warehouse: list[list[str
     return new
 
 
-def push_boxes(warehouse: list[list[str]], robot: tuple[int, int], instructions: str):
+def push_boxes(warehouse: list[str], robot: tuple[int, int], instructions: str):
     for instruction in instructions:
         d = move[instruction]
         next_ = warehouse[robot[0] + d[0]][robot[1] + d[1]]
