@@ -1,7 +1,7 @@
 import heapq
 from collections import defaultdict
 
-with open("../input/day16_test.txt") as f:
+with open("../input/day16.txt") as f:
     lines = f.readlines()
 
 maze = [line.strip() for line in lines]
@@ -44,3 +44,17 @@ start = find_start(maze)
 score, path = dijkstra(maze, start)
 
 print(f"part 1: {score}")
+
+
+# part 2 attempt
+# seats = set()
+# for (r, c) in path:
+#     if maze[r][c] == "S" or maze[r][c] == "E":
+#         continue
+#     maze[r] = maze[r][:c] + "#" + maze[r][c+1:]
+#     cost, p = dijkstra(maze, start)
+#     if cost == score:
+#         seats.update(set(p))
+#     maze[r] = maze[r][:c] + "." + maze[r][c+1:]
+#
+# print(len(seats)+2)
