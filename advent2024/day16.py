@@ -1,6 +1,7 @@
 import heapq
+from collections import defaultdict
 
-with open("../input/day16.txt") as f:
+with open("../input/day16_test.txt") as f:
     lines = f.readlines()
 
 maze = [line.strip() for line in lines]
@@ -20,7 +21,8 @@ def find_start(maze: list[str]) -> tuple[int, int]:
 
 def dijkstra(maze: list[str], start: tuple[int, int]) -> tuple[int, list[tuple[int, int]]]:
     pq = [(0, start, "E", [start])]
-    seen = set()
+    distances = defaultdict(lambda: float("inf"))
+    distances[start] = 0
     while pq:
         score, (r, c), traveling, path = heapq.heappop(pq)
 
@@ -31,9 +33,9 @@ def dijkstra(maze: list[str], start: tuple[int, int]) -> tuple[int, list[tuple[i
             nr, nc = r + DIRS[d][0], c + DIRS[d][1]
             turn = (traveling in NS and d in EW) or (traveling in EW and d in NS)
             points = 1001 if turn else 1
-            if maze[nr][nc] != "#" and (nr, nc) not in seen:
+            if maze[nr][nc] != "#" and (nr, nc) and points < distances[(nr, nc)]:
+                distances[(nr, nc)] = points
                 heapq.heappush(pq, (score + points, (nr, nc), d, path[:] + [(nr, nc)]))
-                seen.add((r, c))
 
     return -1, []
 
