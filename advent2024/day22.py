@@ -14,4 +14,6 @@ for secret in secrets:
     for _ in range(2000):
         secret = next_secret(secret)
     results.append(secret)
-print(sum(results))
+part1 = sum(results)
+
+print(f"part 1: {part1}")
