@@ -1,5 +1,7 @@
+from collections import defaultdict
+
 with open("../input/day22.txt", "r") as f:
-    secrets = [int(x) for x in f.readlines()]
+    input_ = [int(x) for x in f.readlines()]
 
 
 def next_secret(secret: int) -> int:
@@ -9,11 +11,22 @@ def next_secret(secret: int) -> int:
     return s3
 
 
-results = []
-for secret in secrets:
-    for _ in range(2000):
-        secret = next_secret(secret)
-    results.append(secret)
-part1 = sum(results)
+bananas = defaultdict(int)
+total_secrets = 0
 
-print(f"part 1: {part1}")
+for secret in input_:
+    seen = set()
+    secrets = [input_[0]] + [secret := next_secret(secret) for _ in range(2000)]
+    total_secrets += secrets[-1]
+    price_changes = [secrets[i+1] % 10 - secrets[i] % 10 for i in range(len(secrets) - 1)]
+
+    for i in range(len(secrets) - 4):
+        consecutive_changes = tuple(price_changes[i:i+4])
+        if consecutive_changes in seen:
+            continue
+        # we are looking for the price @ the first sequence appearance
+        seen.add(consecutive_changes)
+        bananas[consecutive_changes] += secrets[i+4] % 10
+
+print(f"part 1: {total_secrets}")
+print(f"part 2: {max(bananas.values())}")
